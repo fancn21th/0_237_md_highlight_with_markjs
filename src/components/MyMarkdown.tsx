@@ -7,6 +7,11 @@ import md from "./example.md?raw";
 
 function getRange(str: string, keyword: string) {
   const start = str.indexOf(keyword);
+
+  console.log({
+    [start]: str[start],
+  });
+
   return {
     start,
     length: keyword.length,
@@ -14,7 +19,7 @@ function getRange(str: string, keyword: string) {
 }
 
 function MyMarkdown() {
-  const [keyword] = useState("he");
+  const [keyword] = useState("财务");
   const [computedRange] = useState(() => getRange(md, keyword));
   const [range] = useState({
     start: 0,
@@ -36,8 +41,10 @@ function MyMarkdown() {
 
   return (
     <>
-      <pre>search range: {JSON.stringify(computedRange, null, 2)}</pre>
-      <pre>range: {JSON.stringify(range, null, 2)}</pre>
+      <b>debug info:</b>
+      <pre>text search range: {JSON.stringify(computedRange, null, 2)}</pre>
+      <pre>markjs range: {JSON.stringify(range, null, 2)}</pre>
+      <hr />
       <div ref={markdownRef}>
         <Markdown
           children={md}
