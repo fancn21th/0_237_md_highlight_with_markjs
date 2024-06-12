@@ -6,7 +6,7 @@ import rehypeRaw from "rehype-raw";
 import md from "./example.md?raw";
 
 function MyMarkdown() {
-  const [keyword] = useState("财务");
+  const [keyword] = useState("about me 财务 SAP 系统");
   const markdownRef = useRef(null);
 
   useEffect(() => {
